@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measurement – Keyword Flashcards (Grade 9 Physics)</title>
+<style>
+:root{--bg:#f4efe2;--paper:#fffdf6;--ink:#1d2a3a;--accent:#d9480f;--rule:#c9a227;--grid:rgba(29,42,58,.07);--back:#1d2a3a;--backink:#fdf6e3;--muted:#5b6575}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#12161d;--paper:#1c222c;--ink:#e9e4d6;--accent:#ff8a4c;--rule:#e0b84a;--grid:rgba(233,228,214,.06);--back:#2b3442;--backink:#fdf6e3;--muted:#a7afbd}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,"Times New Roman",serif;color:var(--ink);
+ background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;
+ display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
+header{text-align:center;max-width:720px}
+.kicker{font:600 12px/1.4 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(24px,4vw,36px);margin:6px 0 4px}
+.sub{color:var(--muted);font-size:15px;margin:0}
+.ruler{width:min(720px,100%);height:34px;margin:22px 0 8px;position:relative;background:var(--rule);border-radius:4px;overflow:hidden;
+ box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+.ticks{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.55) 0 1px,transparent 1px 10px),repeating-linear-gradient(90deg,rgba(0,0,0,.7) 0 2px,transparent 2px 50px);
+ background-size:auto 9px,auto 18px;background-repeat:repeat-x;background-position:0 0,0 0}
+.fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);opacity:.55;transition:width .35s ease}
+.cursor{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink);transition:left .35s ease}
+.meta{display:flex;justify-content:space-between;width:min(720px,100%);font:13px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.stage{perspective:1400px;width:min(720px,100%);margin:18px 0}
+.card{position:relative;width:100%;height:340px;cursor:pointer;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1);outline:none}
+.card.flipped{transform:rotateY(180deg)}
+.card:focus-visible .face{box-shadow:0 0 0 4px var(--accent)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:30px 34px;display:flex;flex-direction:column;justify-content:center;
+ box-shadow:0 14px 30px rgba(0,0,0,.15)}
+.front{background:var(--paper);border:2px solid var(--ink)}
+.front::before,.back::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;border-radius:12px 12px 0 0;
+ background-image:repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 8px);opacity:.35}
+.front .num{font:600 13px ui-monospace,Menlo,Consolas,monospace;color:var(--accent);letter-spacing:.15em}
+.front .term{font-size:clamp(28px,5vw,46px);font-weight:700;margin:10px 0}
+.hint{font:13px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.back{background:var(--back);color:var(--backink);transform:rotateY(180deg)}
+.back .term{font:600 14px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--rule)}
+.back .def{font-size:clamp(17px,2.4vw,21px);line-height:1.55;margin-top:12px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+button{font:600 14px ui-monospace,Menlo,Consolas,monospace;padding:11px 18px;border-radius:8px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+button:hover{background:var(--ink);color:var(--paper)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:18px;max-width:720px}
+.dot{width:14px;height:14px;border-radius:3px;border:2px solid var(--ink);background:transparent;padding:0;cursor:pointer}
+.dot.seen{background:var(--rule)} .dot.cur{background:var(--accent);border-color:var(--accent)}
+.keys{margin-top:16px;font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--muted);text-align:center}
+kbd{border:1px solid var(--muted);border-radius:4px;padding:1px 6px}
+</style></head><body>
+<header><div class="kicker">Grade 9 · Physics · Chapter 1</div><h1>Measurement – The Foundation of Science</h1>
+<p class="sub">Keyword flashcards — measure your mastery, one term at a time.</p></header>
+<div class="ruler" aria-hidden="true"><div class="fill" id="fill"></div><div class="ticks"></div><div class="cursor" id="cursor"></div></div>
+<div class="meta"><span id="pos">Card 1 of 15</span><span id="seen">Viewed: 1 / 15</span></div>
+<div class="stage"><div class="card" id="card" tabindex="0" role="button" aria-label="Flashcard, press to flip">
+ <div class="face front"><div class="num" id="num">TERM 01</div><div class="term" id="fterm"></div><div class="hint">Click or press Space to reveal the definition</div></div>
+ <div class="face back"><div class="term" id="bterm"></div><div class="def" id="def"></div></div></div></div>
+<div class="controls"><button id="prev">◀ Prev</button><button class="primary" id="flip">Flip</button><button id="next">Next ▶</button><button id="shuf">Shuffle</button></div>
+<div class="dots" id="dots"></div>
+<div class="keys"><kbd>Space</kbd>/<kbd>Enter</kbd> flip · <kbd>←</kbd> <kbd>→</kbd> move · <kbd>S</kbd> shuffle</div>
+<script>
+const DATA = [{"t":"CGS System","d":"A system of units in which length is measured in centimetres, mass in grams and time in seconds; mainly used in laboratory work."},{"t":"Conversion of Units","d":"Rewriting a measurement in a different unit by changing its numerical value, while the magnitude of the quantity remains the same. Formula: n_2 = n_1 (u_1 / u_2)."},{"t":"Dyne","d":"The CGS unit of force, equal to 1 g cm/s^2. Formula: 1 N = 10^5 dyne."},{"t":"Estimation","d":"Making a sensible guess of a quantity without measuring it; comparing an estimate with a measured value shows the error."},{"t":"FPS System","d":"A system of units in which length is measured in feet, mass in pounds and time in seconds; commonly used in the United States."},{"t":"Kilogram","d":"The SI base unit of mass, symbol kg. 1 kg = 1000 g."},{"t":"Magnitude","d":"The actual size of a physical quantity, which does not change when the unit changes. Formula: Magnitude = numerical value × unit."},{"t":"Measurement","d":"The process of comparing an unknown quantity with a known standard quantity of the same kind."},{"t":"Metre","d":"The SI base unit of length, symbol m. 1 km = 1000 m and 1 m = 100 cm."},{"t":"MKS System","d":"A system of units in which length is measured in metres, mass in kilograms and time in seconds; it later developed into the SI system."},{"t":"Numerical Value","d":"The number in a measurement that tells how many times the chosen unit fits into the quantity; it is inversely proportional to the size of the unit."},{"t":"Second","d":"The SI base unit of time, symbol s, shared by the CGS, FPS and MKS systems. 1 hour = 3600 s."},{"t":"SI Base Units","d":"The seven fundamental units of the SI system: metre, kilogram, second, kelvin, ampere, candela and mole."},{"t":"SI System","d":"The International System of Units (Système International d'Unités), the modern, universally accepted, decimal system of measurement."},{"t":"Unit","d":"A fixed, agreed standard quantity used for comparison in measurement, such as the metre, kilogram or second."}];
+let order = DATA.map((_, i) => i), i = 0; const seen = new Set([0]);
+const $ = (id) => document.getElementById(id), card = $("card");
+function render() {
+  const k = DATA[order[i]];
+  card.classList.remove("flipped");
+  $("fterm").textContent = k.t; $("bterm").textContent = k.t; $("def").textContent = k.d;
+  $("num").textContent = "TERM " + String(i + 1).padStart(2, "0");
+  $("pos").textContent = "Card " + (i + 1) + " of " + DATA.length;
+  seen.add(order[i]); $("seen").textContent = "Viewed: " + seen.size + " / " + DATA.length;
+  const pct = (seen.size / DATA.length) * 100; $("fill").style.width = pct + "%";
+  $("cursor").style.left = "calc(" + ((i + 0.5) / DATA.length * 100) + "% - 1px)";
+  [...$("dots").children].forEach((d, j) => { d.className = "dot" + (seen.has(order[j]) ? " seen" : "") + (j === i ? " cur" : ""); });
+}
+function go(n) { i = (n + DATA.length) % DATA.length; render(); }
+function flip() { card.classList.toggle("flipped"); }
+DATA.forEach((_, j) => { const b = document.createElement("button"); b.className = "dot"; b.setAttribute("aria-label", "Go to card " + (j + 1)); b.onclick = () => go(j); $("dots").appendChild(b); });
+card.onclick = flip; $("flip").onclick = flip; $("prev").onclick = () => go(i - 1); $("next").onclick = () => go(i + 1);
+$("shuf").onclick = () => { for (let a = order.length - 1; a > 0; a--) { const b = Math.floor(Math.random() * (a + 1)); [order[a], order[b]] = [order[b], order[a]]; } go(0); };
+document.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); }
+  else if (e.key === "ArrowRight") go(i + 1); else if (e.key === "ArrowLeft") go(i - 1);
+  else if (e.key.toLowerCase() === "s") $("shuf").onclick();
+});
+render();
+</script></body></html>
